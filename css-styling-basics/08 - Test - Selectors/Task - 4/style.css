@@ -1,0 +1,20 @@
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+
+/* Add styles here */
+
+h2 + p {
+  color: red;
+}
+
+ul[class="list"] > li {
+  list-style-type: none;
+  border-bottom: 1px solid gray;
+}
+
+/* This is equivalent to the previous example */
+/* .list > li {
+  list-style-type: none;
+  border-bottom: 1px solid gray;
+} */
