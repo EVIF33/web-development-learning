@@ -1,30 +1,15 @@
-/* .main {
-  color: rebeccapurple;
-  border: 2px solid #cccccc;
-  padding: 1em;
+#winning {
+  background-color: red;
+  border: 1px solid black;
 }
 
-.special {
-  color: black;
-  font-weight: bold;
-} */
-
-body {
-  color: green;
+.better {
+  background-color: gray;
+  border: none !important;
 }
 
-.my-class-1 a {
-  all: inherit;
-}
-
-.my-class-2 a {
-  all: initial;
-}
-
-.my-class-3 a {
-  all: unset;
-}
-
-a {
-  color: red;
+p {
+  background-color: blue;
+  color: white;
+  padding: 5px;
 }
