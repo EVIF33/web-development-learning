@@ -35,4 +35,4 @@ This is a simple calendar I made while learning web development.
 - style.css - All the styles and colors
 - script.js - The JavaScript code that makes it work
 
-This project helped me understand how to build something interactive from scratch! 🚀
+This project helped me understand how to build something interactive from scratch!
