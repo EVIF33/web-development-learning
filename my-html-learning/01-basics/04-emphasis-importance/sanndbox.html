@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sandbox: Emphasis and Importance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.5;
+        }
+
+        .demo {
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+            margin: 20px 0;
+        }
+
+        .warning {
+            color: #e74c3c;
+        }
+
+        .correct {
+            color: #27ae60;
+        }
+
+        .spelling-error {
+            text-decoration: red underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Elements of emphasis and importance</h1>
+
+    <!-- EMPHASIS (italics in meaning) -->
+    <div class="demo">
+        <h2>&lt;em&gt; — (emphasis)</h2>
+        <p>I'm <em>very</em> glad you're not late.</p>
+        <p>I am <em>very</em> glad that you are not <em>late</em>.</p>
+        <p class="correct">Use when: to change the meaning of a sentence</p>
+        <p class="warning">Do not use: just for cursive text</p>
+    </div>
+
+    <!-- STRONG (importance) -->
+    <div class="demo">
+        <h2>&lt;strong&gt; — (strong importance)</h2>
+        <p>This liquid <strong>is highly toxic</strong>.</p>
+        <p>I'm counting on you. <strong>Don't be late!</strong></p>
+        <p class="correct">Use when: critical information</p>
+        <p class="warning">Do not use: just for bold text</p>
+    </div>
+
+    <!-- NESTING -->
+    <div class="demo">
+        <h2>Nesting &lt;strong&gt; and &lt;em&gt;</h2>
+        <p>This liquid <strong>is highly toxic — if you drink it, <em>you can die</em></strong>.</p>
+    </div>
+
+    <!-- I vs EM / B vs STRONG -->
+    <div class="demo">
+        <h2>When to use &lt;i&gt; и &lt;b&gt; instead of &lt;em&gt;/&lt;strong&gt;</h2>
+
+        <h3>&lt;i&gt; (visual italics):</h3>
+        <p>
+            The hummingbird <i>Archilochus colubris</i> is the most common bird.
+            There were exotic words on the menu: <i lang="fr">soupe à l'oignon</i>.
+        </p>
+
+        <h3>&lt;b&gt; (visual highlighting):</h3>
+        <p>
+            Use the elements according to their <b>semantic</b> meaning, not their appearance.
+            Product Name: <b>Percolator 2000</b>.
+        </p>
+
+        <h3>&lt;u&gt; (underline):</h3>
+        <p>
+            Someday I will learn <u class="spelling-error">how to write correctly</u>.
+            (It is usually better not to emphasize the association with links)
+        </p>
+    </div>
+
+    <!-- OUTDATED TAGS -->
+    <div class="demo warning">
+        <h2>Outdated tags (DO NOT use):</h2>
+        <p><del>&lt;big&gt;, &lt;font&gt;, &lt;center&gt;, &lt;strike&gt;</del></p>
+        <p>Use CSS instead of them.</p>
+    </div>
+
+</body>
+
+</html>
