@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandbox: Creating Hyperlinks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.5;
+        }
+
+        .demo {
+            border-left: 4px solid green;
+            padding: 0 0 0 15px;
+            margin: 25px 0;
+        }
+
+        /* Link styling */
+        a {
+            color: #0066cc;
+            text-decoration: none;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            background: #f0f7ff;
+        }
+
+        /* Navigation styling */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        /* Example highlighting */
+        .good-example {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .bad-example {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        tr {
+            background: #f5f5f5;
+        }
+
+        th {
+            padding: 10px;
+            text-align: left;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Creating Hyperlinks</h1>
+
+    <h2>Main rule</h2>
+    <p>Link text should describe the destination. Never use generic phrases like "click here".</p>
+
+    <h2>List of examples</h2>
+
+    <!-- Example 1: Good vs Bad link text -->
+    <div class="demo">
+        <h3>Example 1: Link Text Quality</h3>
+
+        <div class="bad-example">
+            <p>Bad: <a href="/privacy-policy">click here</a> to read our privacy policy.</p>
+            <p><strong>Problem:</strong> Screen reader users hear "click here" without context.</p>
+        </div>
+
+        <div class="good-example">
+            <p>Good: Read our <a href="/privacy-policy">privacy policy</a>.</p>
+            <p><strong>Better:</strong> The link text describes exactly what it leads to.</p>
+        </div>
+
+        <div class="good-example">
+            <p>Even better:
+                <a href="/privacy-policy" title="Read our privacy policy document">
+                    Privacy Policy
+                </a>
+            </p>
+            <p><strong>Best:</strong> Descriptive text + helpful title attribute.</p>
+        </div>
+    </div>
+
+    <!-- Example 2: URL Path Types -->
+    <div class="demo">
+        <h3>Example 2: URL Path Types</h3>
+
+        <p>Assuming current URL: <code>https://example.com/blog/article.html</code></p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Example href</th>
+                    <th>Goes to</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Absolute</td>
+                    <td><code>https://google.com</code></td>
+                    <td>Google.com</td>
+                </tr>
+                <tr>
+                    <td>Relative (same folder)</td>
+                    <td><code>comments.html</code></td>
+                    <td>example.com/blog/comments.html</td>
+                </tr>
+                <tr>
+                    <td>Relative (parent folder)</td>
+                    <td><code>../index.html</code></td>
+                    <td>example.com/index.html</td>
+                </tr>
+                <tr>
+                    <td>Root-relative</td>
+                    <td><code>/contact</code></td>
+                    <td>example.com/contact</td>
+                </tr>
+                <tr>
+                    <td>Anchor</td>
+                    <td><code>#comments</code></td>
+                    <td>Same page, comments section</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Example 3: Navigation Menu -->
+    <div class="demo">
+        <h3>Example 3: Navigation Menu</h3>
+
+        <nav aria-label="Primary navigation">
+            <ul>
+                <li><a href="/" aria-current="page">Home</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="https://blog.example.com" target="_blank" rel="noopener noreferrer">Blog ↗</a></li>
+            </ul>
+        </nav>
+
+        <p><strong>Key points:</strong></p>
+        <ul>
+            <li><code>&lt;nav&gt;</code> for major navigation blocks</li>
+            <li><code>aria-label</code> describes the navigation purpose</li>
+            <li><code>aria-current="page"</code> indicates current page</li>
+            <li>External link has proper <code>rel</code> attributes</li>
+            <li>↗ symbol indicates external link (visual cue)</li>
+        </ul>
+    </div>
+
+    <!-- Example 4: Special Links -->
+    <div class="demo">
+        <h3>Example 4: Special Links</h3>
+
+        <div style="display: grid; gap: 15px;">
+            <div>
+                <h4>Email Link</h4>
+                <p><a href="mailto:support@company.com?subject=Help Request&body=Hello, I need help with:">Email
+                        Support</a></p>
+                <code>
+                    &lt;a href="mailto:support@company.com?subject=Help Request&body=Hello,"&gt;Email Support&lt;/a&gt;
+                </code>
+            </div>
+
+            <div>
+                <h4>Telephone Link</h4>
+                <p><a href="tel:+1-555-123-4567">Call: (555) 123-4567</a></p>
+                <code>
+                    &lt;a href="tel:+1-555-123-4567"&gt;Call: (555) 123-4567&lt;/a&gt;
+                </code>
+            </div>
+
+            <div>
+                <h4>Download Link</h4>
+                <p><a href="#dummy" download="manual.pdf">Download User Manual (PDF)</a></p>
+                <code>
+                    &lt;a href="/files/manual.pdf" download="manual.pdf"&gt;Download User Manual (PDF)&lt;/a&gt;
+                </code>
+            </div>
+
+            <div>
+                <h4>Button Link</h4>
+                <p>
+                    <a href="/signup" style="
+                        background: #4CAF50;
+                        color: white;
+                        padding: 10px 20px;
+                        border-radius: 5px;
+                        display: inline-block;
+                        text-decoration: none;
+                    ">Sign Up Free</a>
+                </p>
+                <code>
+                    &lt;a href="/signup" class="button"&gt;Sign Up Free&lt;/a&gt;
+                </code>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
