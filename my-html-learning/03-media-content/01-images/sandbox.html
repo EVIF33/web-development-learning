@@ -4,43 +4,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sandbox: Topic name</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            line-height: 1.5;
-        }
-
-        .demo {
-            border-left: 4px solid green;
-            padding: 0 0 0 15px;
-            margin: 25px 0;
-        }
-    </style>
+    <title>Sandbox: Working with Images</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Topic name</h1>
+    <h1>Working with Images in HTML</h1>
 
     <h2>Main rule</h2>
+    <p><strong>Every image needs alt text and dimensions.</strong> Accessibility first, performance second.</p>
 
     <h2>List of examples</h2>
 
-    <!--  -->
+    <!-- Basic Image -->
     <div class="demo">
+        <h3>1. Basic Image (All Required Attributes)</h3>
+        <img src="source/book-on-wood.jpg"
+            alt="Open book on wooden table with coffee cup" width="400" height="300" loading="lazy">
+        <code>&lt;img src="book.jpg" alt="Open book on table" width="400" height="300" loading="lazy"&gt;</code>
+        <p><strong>Why:</strong> Alt for accessibility, dimensions prevent layout shift, lazy loading for performance.
+        </p>
     </div>
 
-    <!--  -->
+    <!-- Image with Figure -->
     <div class="demo">
+        <h3>2. Image with Caption (&lt;figure&gt; & &lt;figcaption&gt;)</h3>
+        <figure>
+            <img src="source/mountain-landscape.jpg"
+                alt="Mountain landscape at sunset with clouds" width="400" height="300">
+            <figcaption>Figure 1: Sunset in the Swiss Alps (Photo by Unsplash)</figcaption>
+        </figure>
+        <pre>
+            <code>&lt;figure&gt
+    &lt;img src="mountain.jpg" alt="Mountain landscape" width="400" height="300"&gt;
+    &lt;figcaption&gt;Figure 1: Sunset in the Swiss Alps&lt;/figcaption&gt;
+&lt;/figure&gt;
+            </code>
+        </pre>
     </div>
 
-    <!--  -->
+    <!-- Responsive Images -->
     <div class="demo">
+        <h3>3. Responsive Images (srcset & sizes)</h3>
+        <img src="source/mountain-peaks-400.jpg" alt="Snow-covered mountain peaks"
+            width="400" 
+            height="300" 
+            srcset="source/mountain-peaks-200.jpg 200w,
+                    source/mountain-peaks-400.jpg 400w,
+                    source/mountain-peaks-600.jpg 600w" 
+            sizes="(max-width: 600px) 200px,
+                   (max-width: 1200px) 400px,
+                   600px">
+        <pre><code>&lt;img src="photo-400.jpg"
+     alt="Description"
+     width="400" height="300"
+     srcset="photo-200.jpg 200w,
+             photo-400.jpg 400w,
+             photo-800.jpg 800w"
+     sizes="(max-width: 600px) 200px,
+            (max-width: 1200px) 400px,
+            800px"&gt;</code></pre>
     </div>
 
-    <!--  -->
+    <!-- Decorative Image (CSS) -->
+    <div class="demo info">
+        <h3>4. Decorative Image (CSS Background)</h3>
+        <div class="decorative-bg" role="img" aria-label="Geometric pattern background">
+            <p>This content has a decorative background image.</p>
+            <p>No alt needed here - it's just decoration.</p>
+        </div>
+        <pre><code>.hero {
+    background-image: url('pattern.svg');
+    background-size: cover;
+}
+
+
+&lt;div class="hero" role="img" aria-label="Decorative pattern"&gt;
+    &lt;!-- Content --&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <!-- Common Mistakes -->
+    <div class="demo warning">
+        <h3>5. Common Mistakes</h3>
+
+        <h4>Missing alt text:</h4>
+        <code>&lt;img src="cat.jpg"&gt; ← BAD: No alt!</code>
+
+        <h4>Generic alt:</h4>
+        <code>&lt;img src="chart.jpg" alt="image"&gt; ← BAD: Too vague!</code>
+
+        <h4>No dimensions:</h4>
+        <code>&lt;img src="product.jpg" alt="Product"&gt; ← BAD: Causes layout shift!</code>
+
+        <h4>Using &lt;img&gt; for decoration:</h4>
+        <code>&lt;img src="pattern.png" alt=""&gt; ← BETTER: Use CSS background!</code>
+    </div>
+
+    <!-- Format Comparison -->
     <div class="demo">
+        <h3>6. Image Format Guide</h3>
+        <ul>
+            <li><strong>JPEG</strong>: Photos (lossy, good compression)</li>
+            <li><strong>PNG</strong>: Graphics with transparency (lossless)</li>
+            <li><strong>WebP</strong>: Modern format (better than JPEG/PNG)</li>
+            <li><strong>SVG</strong>: Vector graphics (scales infinitely)</li>
+            <li><strong>AVIF</strong>: Next-gen (best compression, limited support)</li>
+        </ul>
+    </div>
+
+    <!-- Quick Checklist -->
+    <div class="demo">
+        <h3>7. Quick Checklist for Every Image</h3>
+        <ul>
+            <li><input type="checkbox"> Added meaningful alt text?</li>
+            <li><input type="checkbox"> Specified width and height?</li>
+            <li><input type="checkbox"> Optimized file size?</li>
+            <li><input type="checkbox"> Chose right format (WebP/JPEG/PNG/SVG)?</li>
+            <li><input type="checkbox"> Added loading="lazy" for below-fold images?</li>
+            <li><input type="checkbox"> Have permission to use this image?</li>
+        </ul>
     </div>
 </body>
 
