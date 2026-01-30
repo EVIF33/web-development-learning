@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sandbox: Video & Audio</title>
+</head>
+
+<body>
+    <h1>Video & Audio in HTML</h1>
+    <h2>Main rule: Multiple formats + captions</h2>
+
+    <!-- Video Example -->
+    <div class="demo">
+        <h3>1. Video with multiple formats</h3>
+        <video controls width="600" height="338" poster="source/poster.jpg" preload="none">
+            <!-- WebM first (better compression) -->
+            <source src="source/seconds.mp4" type="video/mp4">
+            <!-- Fallback text -->
+            <p>Your browser doesn't support HTML5 video.
+                <a href="source/seconds.mp4">Download
+                    MP4</a>
+            </p>
+        </video>
+        <pre>
+            <code>&lt;video controls width="600" height="338" poster="preview.jpg"&gt;
+    &lt;source src="video.webm" type="video/webm"&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+    &lt;p&gt;Fallback text&lt;/p&gt;
+&lt;/video&gt;</code>
+        </pre>
+    </div>
+
+    <!-- Audio Example -->
+    <div class="demo">
+        <h3>2. Audio player</h3>
+        <audio controls preload="none">
+            <source src="source/music.mp3" type="audio/mpeg">
+            <p>Listen to <a href="source/music.mp3">the audio (MP3)</a>.
+            </p>
+        </audio>
+        <pre>
+            <code>&lt;audio controls preload="none"&gt;
+    &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+    &lt;source src="audio.ogg" type="audio/ogg"&gt;
+    &lt;p&gt;Fallback&lt;/p&gt;
+&lt;/audio&gt;</code>
+        </pre>
+    </div>
+
+    <!-- Captions Example -->
+    <div class="demo">
+        <h3>3. Video with captions (WebVTT)</h3>
+        <video controls width="400" height="225">
+            <source src="source/seconds.mp4" type="video/mp4">
+            <!-- Caption tracks would go here -->
+            <track kind="captions" src="source/captions.vtt" srclang="en" label="English">
+            <p>Enable captions in player controls.</p>
+        </video>
+        <pre><code>&lt;track kind="subtitles" 
+       src="captions-en.vtt" 
+       srclang="en" 
+       label="English" 
+       default&gt;</code></pre>
+        <p>WebVTT file example:</p>
+        <pre>
+            <code>WEBVTT
+            
+00:00:00.500 --> 00:00:03.000
+Welcome to our video demonstration
+            
+00:00:03.500 --> 00:00:06.000
+This is a test of HTML5 video captions
+            
+00:00:06.500 --> 00:00:09.000
+Using WebVTT format for subtitles
+            </code>
+        </pre>
+    </div>
+
+    <!-- Common Mistakes -->
+    <div class="demo warning">
+        <h3>4. Common Mistakes</h3>
+        <code>&lt;video src="video.mp4"&gt;&lt;/video&gt; ← No controls!</code>
+        <code>&lt;video controls&gt;&lt;source src="video.avi"&gt;&lt;/video&gt; ← AVI not supported!</code>
+        <code>&lt;video autoplay&gt;&lt;/video&gt; ← Annoying for users!</code>
+        <code>&lt;audio&gt;&lt;/audio&gt; ← Invisible without controls!</code>
+    </div>
+
+    <!-- Attributes Guide -->
+    <div class="demo">
+        <h3>5. Key Attributes Guide</h3>
+        <ul>
+            <li><strong>controls</strong> – adds play/pause/volume (ESSENTIAL)</li>
+            <li><strong>preload</strong> – "none"|"metadata"|"auto"</li>
+            <li><strong>autoplay</strong> – use sparingly, requires muted on mobile</li>
+            <li><strong>loop</strong> – restarts when finished</li>
+            <li><strong>muted</strong> – starts without sound</li>
+            <li><strong>playsinline</strong> – required for iOS inline playback</li>
+            <li><strong>poster</strong> – preview image for video</li>
+        </ul>
+    </div>
+
+    <!-- Quick Checklist -->
+    <div class="demo">
+        <h3>6. Quick Checklist</h3>
+        <ul>
+            <li><input type="checkbox"> Multiple formats provided?</li>
+            <li><input type="checkbox"> Controls visible?</li>
+            <li><input type="checkbox"> Captions/transcript available?</li>
+            <li><input type="checkbox"> Tested on mobile?</li>
+            <li><input type="checkbox"> Files compressed?</li>
+            <li><input type="checkbox"> Fallback content for old browsers?</li>
+            <li><input type="checkbox"> Copyright cleared?</li>
+        </ul>
+    </div>
+</body>
+
+</html>
