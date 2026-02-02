@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sandbox: HTML Tables</title>
+</head>
+
+<body>
+    <h1>HTML Tables: Data, Not Layout</h1>
+
+    <h2>Main rule</h2>
+    <p><strong>Tables are for tabular data only.</strong> Never use tables for page layout. Use CSS Grid or Flexbox
+        instead.</p>
+
+    <h2>List of examples</h2>
+
+    <!-- Basic Table -->
+    <div class="demo">
+        <h3>1. Basic Table Structure</h3>
+        <div class="table-container">
+            <table>
+                <caption>Monthly Expenses</caption>
+                <tr>
+                    <th scope="col">Month</th>
+                    <th scope="col">Food</th>
+                    <th scope="col">Transport</th>
+                    <th scope="col">Total</th>
+                </tr>
+                <tr>
+                    <th scope="row">January</th>
+                    <td>$300</td>
+                    <td>$100</td>
+                    <td>$400</td>
+                </tr>
+                <tr>
+                    <th scope="row">February</th>
+                    <td>$280</td>
+                    <td>$120</td>
+                    <td>$400</td>
+                </tr>
+            </table>
+        </div>
+        <pre>
+            <code>&lt;table&gt;
+    &lt;caption&gt;Monthly Expenses&lt;/caption&gt;
+    &lt;tr&gt;
+        &lt;th scope="col"&gt;Month&lt;/th&gt;
+        &lt;th scope="col"&gt;Food&lt;/th&gt;
+        &lt;td&gt;$300&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code>
+        </pre>
+    </div>
+
+    <!-- Semantic Table with Sections -->
+    <div class="demo">
+        <h3>2. Semantic Table (thead, tbody, tfoot)</h3>
+        <div class="table-container">
+            <table>
+                <caption>Project Team Schedule</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Task</th>
+                        <th scope="col">Assignee</th>
+                        <th scope="col">Deadline</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Design mockups</td>
+                        <td>Alex</td>
+                        <td>Mar 15</td>
+                    </tr>
+                    <tr>
+                        <td>Frontend development</td>
+                        <td>Maria</td>
+                        <td>Mar 25</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">Total tasks</td>
+                        <td>2</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <pre>
+            <code>&lt;table&gt;
+    &lt;thead&gt;...&lt;/thead&gt;  &lt;!-- Column headers --&gt;
+    &lt;tbody&gt;...&lt;/tbody&gt;  &lt;!-- Main data --&gt;
+    &lt;tfoot&gt;...&lt;/tfoot&gt;  &lt;!-- Summary --&gt;
+&lt;/table&gt;</code>
+        </pre>
+    </div>
+
+    <!-- Cell Spanning -->
+    <div class="demo">
+        <h3>3. Cell Spanning (colspan, rowspan)</h3>
+        <div class="table-container">
+            <table>
+                <caption>Company Departments</caption>
+                <tr>
+                    <th colspan="2" style="background:#3498db;color:white;">IT Department</th>
+                </tr>
+                <tr>
+                    <th rowspan="2">Developers</th>
+                    <td>Frontend: 5</td>
+                </tr>
+                <tr>
+                    <td>Backend: 3</td>
+                </tr>
+                <tr>
+                    <th>Designers</th>
+                    <td>UI/UX: 2</td>
+                </tr>
+            </table>
+        </div>
+        <pre>
+            <code>
+    &lt;th colspan="2"&gt;IT Department&lt;/th&gt;  &lt;!-- Merge 2 columns --&gt;
+    &lt;th rowspan="2"&gt;Developers&lt;/th&gt;  &lt;!-- Merge 2 rows --&gt;
+            </code>
+        </pre>
+        <p><strong>Note:</strong> Use sparingly - complex spanning breaks accessibility.</p>
+    </div>
+
+    <!-- What NOT to do -->
+    <div class="demo warning">
+        <h3>4. What NOT to do (Common Mistakes)</h3>
+
+        <div class="bad-table">
+            <h4>Using table for layout:</h4>
+            <pre>
+                <code>&lt;table&gt;
+    &lt;tr&gt;
+    &lt;td&gt;Sidebar&lt;/td&gt;
+    &lt;td&gt;Main Content&lt;/td&gt;  &lt;!-- Use CSS Grid! --&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code>
+            </pre>
+
+            <h4>Missing accessibility:</h4>
+            <code>&lt;th&gt;Name&lt;/th&gt;  &lt;!-- Missing scope="col" --&gt;</code>
+
+            <h4>Empty cells without meaning:</h4>
+            <code>&lt;td&gt;&lt;/td&gt;  &lt;!-- Use: &lt;td&gt;-&lt;/td&gt; or aria-label --&gt;</code>
+        </div>
+    </div>
+
+    <!-- Responsive Table -->
+    <div class="demo">
+        <h3>5. Responsive Table Pattern</h3>
+        <p>On mobile, table scrolls horizontally:</p>
+        <div class="table-container" style="border:1px solid #ddd; padding:10px;">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Department</th>
+                    <th>Role</th>
+                    <th>Start Date</th>
+                </tr>
+                <tr>
+                    <td>John Smith</td>
+                    <td>john@company.com</td>
+                    <td>(123) 456-7890</td>
+                    <td>Engineering</td>
+                    <td>Frontend Developer</td>
+                    <td>2023-01-15</td>
+                </tr>
+            </table>
+        </div>
+        <pre>
+            <code>&lt;div class="table-container"&gt;
+    &lt;table&gt;...&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+&lt;/style&gt;</code>
+        </pre>
+    </div>
+</body>
+
+</html>
